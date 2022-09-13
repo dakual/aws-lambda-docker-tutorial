@@ -63,6 +63,10 @@ aws lambda create-function \
 aws lambda create-function-url-config \
 --function-name my-app \
 --auth-type NONE
+
+aws lambda update-function-code \
+--function-name my-app \
+--image-uri <aws-account-id>.dkr.ecr.eu-central-1.amazonaws.com/my-app:latest
 ```
 
 ### Invoke the Lambda function
