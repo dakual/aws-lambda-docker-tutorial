@@ -24,7 +24,7 @@ docker build -t my-app .
 ```sh
 docker run --rm -p 8080:8080 my-app
 
-curl -XPOST "http://localhost:8080/2015-03-31/functions/function/invocations" -d '{"message":"Hello World!"}'
+curl -XPOST "http://localhost:8080/2015-03-31/functions/function/invocations" -d '{"body":{\"message\":\"Hello Lambda!\"}}'
 
 aws lambda invoke \
   --region eu-central-1 \
@@ -32,7 +32,7 @@ aws lambda invoke \
   --no-sign-request \
   --function-name function \
   --cli-binary-format raw-in-base64-out \
-  --payload '{"message":"Hello World!"}' output.txt
+  --payload '{"body":{\"message\":\"Hello Lambda!\"}}' output.txt
 
 aws lambda invoke --function-name "my-app" /dev/stdout
 ```
@@ -76,13 +76,13 @@ aws lambda \
 --region eu-central-1 invoke \
 --function-name my-app \
 --cli-binary-format raw-in-base64-out \
---payload '{"message":"Hello World!"}' \
+--payload '{"body":{\"message\":\"Hello Lambda!\"}}' \
 output.txt
 
 # with curl
 curl -X POST \
     'https://abcdefg.lambda-url.us-east-1.on.aws/' \
     -H 'Content-Type: application/json' \
-    -d '{"message":"Hello World!"}'
+    -d '{"body":{\"message\":\"Hello Lambda!\"}}'
 ```
 
