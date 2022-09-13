@@ -55,7 +55,7 @@ aws lambda create-function \
 --code ImageUri=<aws-account-id>.dkr.ecr.eu-central-1.amazonaws.com/my-app:latest
 ```
 
-### Invoke the Lambda functionPermalink
+### Invoke the Lambda function
 ```sh
 aws lambda \
 --region eu-central-1 invoke \
