@@ -21,7 +21,7 @@ docker build -t my-app .
 ### Run image and Test it locally
 ```sh
 docker run --rm -p 8080:8080 my-app
-curl -XPOST "http://localhost:8080/2015-03-31/functions/function/invocations" -d '{"a":"b"}'
+curl -XPOST "http://localhost:8080/2015-03-31/functions/function/invocations" -d '{"message":"Hello World!"}'
 aws lambda invoke \
   --region eu-central-1 \
   --endpoint http://localhost:8080 \
