@@ -1,0 +1,12 @@
+{
+  "name": "aws-lambda-docker-tutorial",
+  "version": "1.0.0",
+  "description": "``` aws iam create-role --role-name lambda-execute --assume-role-policy-document '{     \"Version\": \"2012-10-17\",     \"Statement\": [{ \"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"},      \"Action\": \"sts:AssumeRole\"}] }' ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
