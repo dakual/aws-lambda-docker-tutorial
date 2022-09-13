@@ -1,12 +1,24 @@
-exports.handler = async (event, context) => {
-  console.log(event);
-  console.log(context);
+exports.handler = async (event, context, callback) => {
+  console.log('Event: ', event);
+  console.log('Context: ', context);
 
-  let responseMessage = 'Hello, World!';
+  var responseMessage = 'Hello, World!!';
 
-  if (event.message) {
-      responseMessage = 'Message: ' + event.message;
+  if(event.body) {
+    var body = JSON.parse(event.body);
+    if (body.message) {
+      responseMessage = body.message;
+    }
   }
 
-  return responseMessage;
+  return {
+    "statusCode": 200,
+    "headers": {
+      'Content-Type': 'application/json',
+    },
+    "isBase64Encoded": false,
+    "body": JSON.stringify({
+      "message": responseMessage,
+    }),
+  }
 }
